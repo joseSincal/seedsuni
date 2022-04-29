@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -105,5 +108,11 @@ public class SiniestroServicio implements SiniestroServicioInt{
 	@Override
 	public List<Siniestro> buscarAceptados( char aceptado){
 		return siniestroRepository.queryByAceptadoLike(aceptado);
+	}
+
+	@Override
+	public Page<Siniestro> buscar(int pagina, int cantidad) {
+		Pageable pageable = PageRequest.of(pagina, cantidad);
+		return siniestroRepository.findAll(pageable);
 	}
 }

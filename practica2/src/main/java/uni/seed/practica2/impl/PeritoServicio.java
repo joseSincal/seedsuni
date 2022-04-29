@@ -1,4 +1,5 @@
 package uni.seed.practica2.impl;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -66,10 +67,12 @@ public class PeritoServicio implements PeritoServicioInt{
 	
 	@Override
 	public List<Siniestro> buscarSiniestroPerito(int dniPerito){
-		List<Siniestro> siniestro = siniestroRepository.findAll();
-		for(Siniestro sin : siniestro) {
-			if(sin.getPerito().getDniPerito() != dniPerito) {
-				siniestro.remove(sin);
+		List<Siniestro> siniestro = new ArrayList<>();
+		for(Siniestro sin : siniestroRepository.findAll()) {
+			if(sin.getPerito() != null) {
+				if(sin.getPerito().getDniPerito() == dniPerito) {
+					siniestro.add(sin);
+				}
 			}
 		}
 		return siniestro;

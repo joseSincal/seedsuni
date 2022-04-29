@@ -2,6 +2,7 @@ package uni.seed.practica2.ws;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,5 +38,8 @@ public interface CompaniaSeguroServicioInt {
 	
 	@DeleteMapping(path="/eliminar/sql/{id}")
 	public int eliminarCompaniaSeguro(Integer id);
+	
+	@GetMapping(path = "/buscar/paginacion/{pagina}/{cantidad}")
+	public Page<CompaniaSeguro> buscar(@PathVariable int pagina, @PathVariable int cantidad);
 
 }

@@ -133,6 +133,5 @@ public class ClienteServicio implements ClienteServicioInt {
 		return clienteRepository.buscarTotalPolizasCliente(dniCl);
 	}
 
-
 	
 }

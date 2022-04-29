@@ -2,6 +2,7 @@ package uni.seed.practica2.ws;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,5 +38,8 @@ public interface SiniestroServicioInt {
 	
 	@GetMapping(path="/buscar/aceptado/{aceptado}")
 	public List<Siniestro> buscarAceptados(@PathVariable char aceptado);
+	
+	@GetMapping(path = "/buscar/paginacion/{pagina}/{cantidad}")
+	public Page<Siniestro> buscar(@PathVariable int pagina, @PathVariable int cantidad);
 	
 }

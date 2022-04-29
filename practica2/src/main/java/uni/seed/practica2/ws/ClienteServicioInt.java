@@ -61,4 +61,5 @@ public interface ClienteServicioInt {
 	
 	@GetMapping(path = "/buscar/total/seguros/{dniCl}")
 	public Long  buscarTotalSeguros(@PathVariable int dniCl);
+	
 }

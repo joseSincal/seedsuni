@@ -22,6 +22,6 @@ public class ClienteDto implements Serializable{
 	private Integer telefono;
 	private String observaciones;
 	private List<SeguroDto> seguro;
-
+	
 	
 }

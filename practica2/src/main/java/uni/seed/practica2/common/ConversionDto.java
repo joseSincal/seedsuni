@@ -54,7 +54,6 @@ public class ConversionDto {
 	public Perito convertirPeritoDtoToPerito(PeritoDto peritoDto) {
 		return MP.map(peritoDto, Perito.class);
 	}
-	
 
 	
 }

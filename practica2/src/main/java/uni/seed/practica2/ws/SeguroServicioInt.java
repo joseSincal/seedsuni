@@ -3,6 +3,7 @@ package uni.seed.practica2.ws;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,6 +39,12 @@ public interface SeguroServicioInt {
 	
 	@GetMapping(path="/buscar/poliza/{numeroPoliza}")
 	public List<Seguro> buscarPorCompaniaAsc(@PathVariable int numeroPoliza);
+	
+	@GetMapping(path="/buscar/paginacion/{pagina}/{cantidad}")
+	public Page<Seguro> buscar(@PathVariable int pagina, @PathVariable int cantidad);
+	
+	@GetMapping(path = "/buscar/cliente/{dniCliente}")
+	public List<Seguro> buscar(@PathVariable int dniCliente);
 	
 
 }

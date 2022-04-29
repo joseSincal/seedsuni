@@ -1,10 +1,14 @@
 package uni.seed.practica2.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -64,6 +68,26 @@ public class SeguroServicio implements SeguroServicioInt {
 	@Override
 	public List<Seguro> buscarPorCompaniaAsc(int numeroPoliza){
 		return seguroRepository.findByNumeroPoliza(numeroPoliza);
+	}
+
+	@Override
+	public Page<Seguro> buscar(int pagina, int cantidad) {
+		Pageable pageable = PageRequest.of(pagina, cantidad);
+		return seguroRepository.findAll(pageable);
+	}
+
+	/**
+	 *
+	 */
+	@Override
+	public List<Seguro> buscar(int dniCliente) {
+		List<Seguro> seguros = new ArrayList<>();
+		for(Seguro seguro : seguroRepository.findAll()) {
+			if(seguro.getDniCl() == dniCliente) {
+				seguros.add(seguro);
+			}
+		}
+		return seguros;
 	}
 
 	

@@ -10,7 +10,7 @@ public class CompaniaDto  implements Serializable{
 
 	private static final long serialVersionUID = 3086923943921838017L;
 	
-	private String  nombreCompania;
+	private String nombreCompania;
 	private String claseVia;
 	private String nombreVia;
 	private Integer numeroVia;

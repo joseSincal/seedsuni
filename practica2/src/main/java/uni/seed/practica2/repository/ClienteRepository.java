@@ -10,6 +10,8 @@ import uni.seed.practica2.entity.Cliente;
 
 @Repository("clienteRepository")
 public interface ClienteRepository  extends JpaRepository<Cliente, Serializable>{
+	
+	public Cliente findByDniCl(int dniCl);
 
 	public List<Cliente> findByNombreClAndApellido1(String nombreCl, String apellido1);
 	
